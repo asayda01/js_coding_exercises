@@ -43,20 +43,38 @@ export function reverseWord(word) {
 
 export function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  for(let idx in words) { 
+    words[idx] = words[idx].split('').reverse().join('');
+}
+  return words;          // could be improved * 
 }
 
 export function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  // Add your code here!
+  return users.filter(users => users.type === "Linux").length;
 }
 
 export function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  // Add your code here!
+  return (scores.reduce((a, b) => a + b, 0)) / scores.length ;
+  
+  /*             */
+
+  // not rounding the numbers properly
+  // take another look later
+  // do NOT forget
+
+  /*             */
+
 }
 
 export function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  // Add your code here!
+  
+  if (n % 15 == 0) return("fizzbuzz");
+  else if (n % 3 == 0) return("fizz");
+  else if (n % 5 == 0) return("buzz");
+  else return n;
+
 }
+
