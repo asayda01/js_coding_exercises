@@ -17,12 +17,15 @@ export function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
   return ( originalPrice + ( (vatRate/100) * originalPrice ) ) ; 
+  
+  /*             */
 
   // not rounding the numbers properly
   // take another look later
   // do NOT forget
 
   /*             */
+
 }
 
 export function getSalePrice(originalPrice, reduction) {
