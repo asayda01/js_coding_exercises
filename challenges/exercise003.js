@@ -1,6 +1,6 @@
 export function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
+  return nums.map(x => Math.pow (x,2));
 }
 
 export function camelCaseWords(words) {
@@ -22,5 +22,5 @@ export function checkIngredients(menu, ingredient) {
 export function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+  return [...new Set(arr1)].filter(Set.prototype.has, new Set(arr2)).sort();
 }
