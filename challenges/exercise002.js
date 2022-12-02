@@ -18,6 +18,9 @@ export function getBusNumbers(people) {
 export function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   return arr.filter (x => x === "sheep").length;
+
+  //for case sensitive counting function
+  //return arr.filter (x => x.toUpperCase() === "sheep".toUpperCase()).length;
 }
 
 export function hasMPostCode(person) {
