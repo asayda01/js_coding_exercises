@@ -1,6 +1,6 @@
 export function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  return nums.filter(x => {return x <1 });
 }
 
 export function findNamesBeginningWith(names, char) {
