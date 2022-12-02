@@ -19,7 +19,7 @@ export function getTotalSubjects(people) {
 export function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  return menu.some(ingredient => menu.indexOf(ingredient) >= 0);
+  return menu.some(x => { return ingredient === x});
 
   /*             */
 
