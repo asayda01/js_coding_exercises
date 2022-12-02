@@ -17,12 +17,13 @@ export function findVerbs(words) {
 
 export function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  return nums.filter(x => { return Number.isInteger(x) === true }) ;
+  //return nums.filter(x => { return typeof x === 'number' && x % 1 === 0});
 }
 
 export function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+  return users.map( x => { return x.data.city.displayName } );
 }
 
 export function getSquareRoots(nums) {
