@@ -34,7 +34,8 @@ export function getSquareRoots(nums) {
 export function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+  //return sentences.filter( x => {return x.includes(str) }); // for case sensitive searches
+  return sentences.filter( x => {return x.toUpperCase().includes(str.toUpperCase()) });
 }
 
 export function getLongestSides(triangles) {
