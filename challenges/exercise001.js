@@ -9,6 +9,7 @@ export function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
   return firstName.substring(0,1).toUpperCase() + "."  +lastName.substring(0,1).toUpperCase();
+  
   //  for more better runtime and efficiency one can use: 
   //   return firstName.substring(0,1) + "."  +lastName.substring(0,1);
 }
@@ -16,15 +17,7 @@ export function generateInitials(firstName, lastName) {
 export function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  return ( originalPrice + ( (vatRate/100) * originalPrice ) ) ; 
-  
-  /*             */
-
-  // not rounding the numbers properly
-  // take another look later
-  // do NOT forget
-
-  /*             */
+  return parseFloat( (originalPrice + ( (vatRate/100) * originalPrice ) ).toFixed(2)) ;  
 
 }
 
@@ -59,16 +52,7 @@ export function countLinuxUsers(users) {
 
 export function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  return (scores.reduce((a, b) => a + b, 0)) / scores.length ;
-  
-  /*             */
-
-  // not rounding the numbers properly
-  // take another look later
-  // do NOT forget
-
-  /*             */
-
+  return parseFloat(((scores.reduce((a, b) => a + b, 0)) / scores.length).toFixed(2) ) ;
 }
 
 export function simpleFizzBuzz(n) {
