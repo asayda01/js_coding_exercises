@@ -24,27 +24,25 @@ describe("sumMultiples", () => {
 });
 
 describe("isValidDNA", () => {
-  test("returns an object with the count of 1s and 0s in a string", () => {
-    expect(isValidDNA("11000")).toEqual({
-      1: 2,
-      0: 3,
-    });
+  test("returns a false if there`s", () => {
 
-    expect(isValidDNA("0101010111")).toEqual({
-      1: 6,
-      0: 4,
-    });
+    expect(isValidDNA("A")).toBe(true);
+    expect(isValidDNA("ACGT")).toBe(true);
+    expect(isValidDNA("ACGT")).toBe(true);  
+});
+test("returns case not case sensitive", () => {
 
-    expect(isValidDNA("1111111")).toEqual({
-      1: 7,
-      0: 0,
-    });
+  expect(isValidDNA("A")).toBe(true);
+  expect(isValidDNA("ACGT")).toBe(true);
+  expect(isValidDNA("ACGT")).toBe(true);  
+});
+test("returns false if it recieves non-letter characters", () => {
+  expect(isValidDNA("@$£?")).toBe(false);
+  expect(isValidDNA("A?")).toBe(false);
+  expect(isValidDNA("AC-GT")).toBe(false);
+  expect(isValidDNA("abcd*Ge?")).toBe(false);  
+});
 
-    expect(isValidDNA("0111")).toEqual({
-      1: 3,
-      0: 1,
-    });
-  });
 });
 
 describe("getComplementaryDNA", () => {
