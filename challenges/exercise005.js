@@ -31,12 +31,14 @@ export const sumArrays = (arrs) => {
   return sum_of_arrs.reduce((k,m)=> k+m,0);
 
   // could be improved * * *
-  // could be added an extra map function for a one-liner but runtime % complexity ? ? ? 
+  // could be added an extra map function for an one-liner solution but runtime % complexity ? ? ? 
 };
 
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+  if (arr.length <= 1) return arr ;
+  [arr[0],arr[arr.length-1]] = [arr[arr.length-1],arr[0]];
+  return arr;
 };
 
 export const findNeedle = (haystack, searchTerm) => {
