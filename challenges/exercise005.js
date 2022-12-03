@@ -44,10 +44,19 @@ export const arrShift = (arr) => {
 export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  // Your code here!
+  return Object.keys(haystack).some(x => 
+    String(haystack[x]).toUpperCase().includes(searchTerm.toUpperCase()));
 };
 
 export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  let obj = {};
+  str.split(" ").forEach(function(el, i, arr) {
+    obj[el.toLowerCase().replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, '')] =
+     obj[el.toLowerCase().replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, '')] ? 
+     ++obj[el.toLowerCase().replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, '')] : 1;
+  });
+  return obj;
+
+  // removes all non-letters characters
 };
