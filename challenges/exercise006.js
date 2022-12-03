@@ -4,8 +4,10 @@
  * @param {Array} arr
  * @returns {Number}
  */
-export const sumMultiples = (arr) => {
+export function sumMultiples (arr) {
   if (arr === undefined) throw new Error("arr is required");
+  let arr_factorized = arr.filter(x => {return (x % 3 === 0) || (x % 5 === 0) || (x % 15 === 0) } );
+  return arr_factorized.reduce((a, b) => a + b, 0);
 };
 
 /**
