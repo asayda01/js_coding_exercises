@@ -42,7 +42,7 @@ export function reverseAllWords(words) {
   for(let idx in words) { 
     words[idx] = words[idx].split('').reverse().join('');
 }
-  return words;          // could be improved * 
+  return words;          // could be improved * * *
 }
 
 export function countLinuxUsers(users) {
