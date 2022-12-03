@@ -8,22 +8,18 @@ import {
   } from "../challenges/exercise006";
 
 describe("sumMultiples", () => {
-  test("returns the next number after the given number in the array", () => {
-    expect(sumMultiples([5, 3, 7, 8, 1, 10], 7)).toBe(8);
-    expect(sumMultiples([5, 3, 7, 8, 1, 10], 1)).toBe(10);
-    expect(sumMultiples([4, 22, 654, 123, 65, 23, 40, 1], 22)).toBe(654);
+  test("returns the sum of any numbers which are a multiple of 3 or 5", () => {
+    expect(sumMultiples([1,2,3,4,5])).toBe(8);
+    expect(sumMultiples([3,3,3,5,5])).toBe(19);
+    expect(sumMultiples([1,2,3,4,5,6,7,8,9,10,11,12,13,14])).toBe(45);
   });
 
-  test("if the number is not found in the array, returns null", () => {
-    expect(sumMultiples([5, 3, 7, 8, 1, 10], 55)).toBe(null);
+  test("if the numbers are not a multiple of 3 or 5, returns zero", () => {
+    expect(sumMultiples([2,4,8,14,16,22,26])).toBe(0);
   });
 
-  test("if the number is found more than once, returns the number after the first instance", () => {
-    expect(sumMultiples([5, 3, 7, 8, 1, 3, 10], 3)).toBe(7);
-  });
-
-  test("if the number is found in the final index position of the array, returns null", () => {
-    expect(sumMultiples([5, 3, 7, 8, 1, 3, 10], 10)).toBe(null);
+  test("if the numbers are both a multiple of 3 and a multiple of 5, returns a multiple of 15", () => {
+    expect(sumMultiples([15,15,15,15,15], 22)).toBe(75);
   });
 });
 
