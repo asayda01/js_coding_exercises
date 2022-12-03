@@ -8,12 +8,21 @@ export const findNextNumber = (nums, n) => {
 
 export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  let count_1 = 0, count_0 = 0, obj_1 = {};
+  if (str.includes("1") === true ) {count_1 = str.match(/1/g).length};
+  if (str.includes("0") === true ) {count_0 = str.match(/0/g).length};
+  obj_1 = { 0 : count_0 , 1 : count_1 };
+  return obj_1;
+
+  // could be improved *
+
 };
 
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  return Number(String(n).split('').reverse().join(''));
+  
+  // no leading zero(s) as it returns only numbers not strings
 };
 
 export const sumArrays = (arrs) => {
