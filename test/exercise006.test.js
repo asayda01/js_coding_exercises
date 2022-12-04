@@ -86,15 +86,21 @@ describe("isItPrime", () => {
 });
 
 describe("createMatrix", () => {
-  test("returns an array with the first and last items swapped", () => {
-    expect(createMatrix([1, 2])).toEqual([2, 1]);
-    expect(createMatrix([1, 2, 3])).toEqual([3, 2, 1]);
-    expect(createMatrix([1, 2, 3, 4])).toEqual([4, 2, 3, 1]);
+  test("returns an array of n arrays wherein each array filled with n items,", () => {
+    expect(createMatrix(3, "foo")).toEqual([ [ 'foo', 'foo', 'foo' ],
+    [ 'foo', 'foo', 'foo' ],
+    [ 'foo', 'foo', 'foo' ] ]);
+    expect(createMatrix(4,"ho")).toEqual([ [ 'ho', 'ho', 'ho', 'ho' ],
+    [ 'ho', 'ho', 'ho', 'ho' ],
+    [ 'ho', 'ho', 'ho', 'ho' ],
+    [ 'ho', 'ho', 'ho', 'ho' ] ]);
+    expect(createMatrix(2,"Marry Christmas")).toEqual([ [ 'Marry Christmas', 'Marry Christmas' ],
+    [ 'Marry Christmas', 'Marry Christmas' ] ] );
   });
 
-  test("makes no difference when the array length is < 2", () => {
-    expect(createMatrix([1])).toEqual([1]);
-    expect(createMatrix([])).toEqual([]);
+  test("return an empty array if n is not a valid number or less than 1", () => {
+    expect(createMatrix(0,"No Succes")).toEqual([]);
+    expect(createMatrix(-5,"No Pain, No Gain")).toEqual([]);
   });
 });
 
