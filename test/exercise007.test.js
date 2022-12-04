@@ -18,31 +18,20 @@ describe("sumDigits", () => {
     expect(sumDigits(-135)).toEqual(NaN);
     expect(sumDigits(0)).toEqual(0);
   });
-  
+
 });
 
 describe("createRange", () => {
-  test("returns an object with the count of 1s and 0s in a string", () => {
-    expect(createRange("11000")).toEqual({
-      1: 2,
-      0: 3,
+  test("returns a range of numbers as an array having a start point, an end point and an optional step range", () => {
+    expect(createRange(3,11,2)).toEqual([ 3, 5, 7, 9, 11 ]);
+    expect(createRange(3,20,3)).toEqual([ 3, 6, 9, 12, 15, 18 ]);
+    expect(createRange(1,26,5)).toEqual([ 1, 6, 11, 16, 21, 26 ]);
     });
 
-    expect(createRange("0101010111")).toEqual({
-      1: 6,
-      0: 4,
+  test("Step is an optional parameter. If it is not provided, it assumes the step is 1", () => {
+      expect(createRange(1,5)).toEqual([ 1,2,3,4,5 ]);
+      expect(createRange(0,10)).toEqual([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]);
     });
-
-    expect(createRange("1111111")).toEqual({
-      1: 7,
-      0: 0,
-    });
-
-    expect(createRange("0111")).toEqual({
-      1: 3,
-      0: 1,
-    });
-  });
 });
 
 describe("getScreentimeAlertList", () => {

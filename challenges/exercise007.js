@@ -10,7 +10,11 @@ export function sumDigits (n) {
 };
 
 /**
- * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range. For example, if start = 3, end = 11 and step = 2 the resulting range would be: [3, 5, 7, 9, 11]
+ * This function creates a range of numbers as an array. 
+ * It received a start, an end and a step. 
+ * Step is the gap between numbers in the range.
+ *  For example, if start = 3, end = 11 and step = 2 
+ * the resulting range would be: [3, 5, 7, 9, 11]
  * Both the start and the end numbers are inclusive.
  * Step is an optional parameter. If it is not provided, assume the step is 1.
  * @param {Number} start
@@ -20,10 +24,9 @@ export function sumDigits (n) {
 export function createRange (start, end, step) {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
-  if (step === undefined)
-    console.log(
-      "FYI: Optional step parameter not provided. Remove this check once you've handled the optional step!"
-    );
+  if (step === undefined) step = 1; // as it`s an optional parameter.
+  return [...Array(Math.floor(((end - start) / step)) + 1).keys()]
+  .map(x => (x * step) + start);
 };
 
 /**
