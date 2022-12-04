@@ -30,7 +30,8 @@ export function createRange (start, end, step) {
 };
 
 /**
- * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
+ * This function takes an array of user objects and their usage in minutes of 
+ * various applications. The format of the data should be as follows:
  * [
  *  {
  *    username: "beth_1234",
@@ -53,9 +54,11 @@ export function createRange (start, end, step) {
  *   },
  * ]
  *
- * The function should return an array of usernames of users who have used more than 100 minutes of screentime for a given date.
+ * The function should return an array of usernames of users who have used 
+ * more than 100 minutes of screentime for a given date.
  * The date will be provided in the format "2019-05-04" (YYYY-MM-DD)
- * For example, if passed the above users and the date "2019-05-04" the function should return ["beth_1234"] as she used over 100 minutes of screentime on that date.
+ * For example, if passed the above users and the date "2019-05-04" the function should
+ *  return ["beth_1234"] as she used over 100 minutes of screentime on that date.
  * @param {Array} users
  */
 export function getScreentimeAlertList (users, date) {

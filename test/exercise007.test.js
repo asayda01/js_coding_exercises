@@ -25,7 +25,8 @@ describe("createRange", () => {
   test("returns a range of numbers as an array having a start point, an end point and an optional step range", () => {
     expect(createRange(3,11,2)).toEqual([ 3, 5, 7, 9, 11 ]);
     expect(createRange(3,20,3)).toEqual([ 3, 6, 9, 12, 15, 18 ]);
-    expect(createRange(1,26,5)).toEqual([ 1, 6, 11, 16, 21, 26 ]);
+    expect(createRange(11,26,5)).toEqual([ 11, 16, 21, 26 ]);
+    expect(createRange(-11,26,5)).toEqual([ -11, -6, -1, 4, 9, 14, 19, 24 ]);
     });
 
   test("Step is an optional parameter. If it is not provided, it assumes the step is 1", () => {
