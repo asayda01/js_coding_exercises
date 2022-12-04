@@ -19,7 +19,9 @@ export function sumMultiples (arr) {
  */
 export function isValidDNA (str) {
   if (str === undefined) throw new Error("str is required");
-  return str.split("").map(x => {return ((x.toUpperCase()==="C") || (x.toUpperCase()==="G") || (x.toUpperCase()==="T") || (x.toUpperCase()==="A")) });
+  let arr_1 = str.split("").map(x => {return ((x.toUpperCase()==="C") ||
+  (x.toUpperCase()==="G") || (x.toUpperCase()==="T") || (x.toUpperCase()==="A")) });
+  return !arr_1.some(x => {return (x.toString()).includes(false) === true});
 };
 
 /**

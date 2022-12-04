@@ -24,22 +24,22 @@ describe("sumMultiples", () => {
 });
 
 describe("isValidDNA", () => {
-  test("returns a false if there`s", () => {
+  test("returns a true if it is a valid DNA string that contains characters C, G, T or A only", () => {
 
     expect(isValidDNA("A")).toBe(true);
-    expect(isValidDNA("ACGT")).toBe(true);
+    expect(isValidDNA("CGT")).toBe(true);
     expect(isValidDNA("ACGT")).toBe(true);  
 });
-test("returns case not case sensitive", () => {
+test("it should not be case sensitive", () => {
 
-  expect(isValidDNA("A")).toBe(true);
-  expect(isValidDNA("ACGT")).toBe(true);
-  expect(isValidDNA("ACGT")).toBe(true);  
+  expect(isValidDNA("a")).toBe(true);
+  expect(isValidDNA("cgt")).toBe(true);
+  expect(isValidDNA("acgt")).toBe(true);  
 });
 test("returns false if it recieves non-letter characters", () => {
   expect(isValidDNA("@$£?")).toBe(false);
   expect(isValidDNA("A?")).toBe(false);
-  expect(isValidDNA("AC-GT")).toBe(false);
+  expect(isValidDNA("AC-DC")).toBe(false);
   expect(isValidDNA("abcd*Ge?")).toBe(false);  
 });
 
