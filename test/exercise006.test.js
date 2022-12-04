@@ -62,9 +62,26 @@ describe("getComplementaryDNA", () => {
 });
 
 describe("isItPrime", () => {
-  test("returns the total of the numbers in all sub arrays", () => {
-    const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
-    expect(isItPrime(arrs)).toBe(44);
+  test("returns true if the number is a prime number", () => {
+    expect(isItPrime(0)).toBe(false);
+    expect(isItPrime(1)).toBe(false);
+    expect(isItPrime(2)).toBe(true);
+    expect(isItPrime(3)).toBe(true);
+    expect(isItPrime(5)).toBe(true);
+    expect(isItPrime(7)).toBe(true);
+    expect(isItPrime(16)).toBe(false);
+    expect(isItPrime(123456)).toBe(false);
+    expect(isItPrime(7777777777)).toBe(false);
+  });
+  test("returns false if the number is a negative number as negative numbers aren't primes", () => {
+    expect(isItPrime(-1)).toBe(false);
+    expect(isItPrime(-2)).toBe(false);
+    expect(isItPrime(-3)).toBe(false);
+    expect(isItPrime(-5)).toBe(false);
+    expect(isItPrime(-7)).toBe(false);
+    expect(isItPrime(-16)).toBe(false);
+    expect(isItPrime(-123456)).toBe(false);
+    expect(isItPrime(-7777777777)).toBe(false);
   });
 });
 
