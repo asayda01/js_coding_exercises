@@ -91,5 +91,22 @@ export function hexToRGB (hexStr) {
  * @param {Array} board
  */
 export function findWinner (board) {
+  
   if (board === undefined) throw new Error("board is required");
-};
+  
+          
+  for (let i = 0; i < 3; i++) {
+    // check for rows 
+    if (board[i][0] === board[i][1] && board[i][0] === board[i][2] && board[i][0] !== '')  { return board[i][0] } ;
+  
+  // check for columns 
+    if (board[0][i] === board[1][i] && board[0][i] === board[2][i] && board[0][i] !== '') { return board[0][i] } ;
+  
+    // check for diagonals
+    if (board[0][0] === board[1][1] && board[0][0] === board[2][2] && board[0][0] !== '') { return board[0][0] } ;
+    if (board[0][2] === board[1][1] && board[0][2] === board[2][0] && board[0][2] !== '') { return board[0][2] } ;
+
+    };
+    return null;
+    
+  };

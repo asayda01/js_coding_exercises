@@ -52,14 +52,40 @@ describe("hexToRGB", () => {
 });
 
 describe("findWinner", () => {
-  test("returns an array with the first and last items swapped", () => {
-    expect(findWinner([1, 2])).toEqual([2, 1]);
-    expect(findWinner([1, 2, 3])).toEqual([3, 2, 1]);
-    expect(findWinner([1, 2, 3, 4])).toEqual([4, 2, 3, 1]);
-  });
+  test("returns 'X' if player X has won, '0' if the player 0 has won", () => {
+    expect(findWinner ([
+      ["X", "0", null],
+      ["X", null, "0"],
+      ["X", null, "0"]
+     ])).toBe("X");
 
-  test("makes no difference when the array length is < 2", () => {
-    expect(findWinner([1])).toEqual([1]);
-    expect(findWinner([])).toEqual([]);
+    });
+  test("returns the winner, even if the winner has won with diagonals", () => {
+    expect(findWinner (
+
+      [
+      ["X", null, "0"],
+      [null, "0", "X"],
+      ["0", "X", null]
+     ]
+     
+     
+     )).toBe("0");
+
+     expect(findWinner (
+      [
+      ["0", "X", null],
+      ["X", "0", "0"],
+      [null, null, "0"]
+     ]
+     )).toBe("0");
+
   });
+  test("returns null if there is currently no winner", () => {
+    expect(findWinner ([
+      ["X", "0", null],
+      [null, null, "0"],
+      ["X", null, "0"]
+     ])).toBe(null);
+});
 });
