@@ -7,23 +7,18 @@ import {
 } from "../challenges/exercise007";
 
 describe("sumDigits", () => {
-  test("returns the next number after the given number in the array", () => {
-    expect(sumDigits([5, 3, 7, 8, 1, 10], 7)).toBe(8);
-    expect(sumDigits([5, 3, 7, 8, 1, 10], 1)).toBe(10);
-    expect(sumDigits([4, 22, 654, 123, 65, 23, 40, 1], 22)).toBe(654);
+  test("returns the sum of all its digits of a given number", () => {
+    expect(sumDigits(8)).toEqual(8);
+    expect(sumDigits(123)).toEqual(6);
+    expect(sumDigits(555555555555555)).toEqual(75);
+    expect(sumDigits(101010101)).toEqual(5);
   });
 
-  test("if the number is not found in the array, returns null", () => {
-    expect(sumDigits([5, 3, 7, 8, 1, 10], 55)).toBe(null);
+  test("if the number is not a non-negative number, returns NaN (Not A Number)", () => {
+    expect(sumDigits(-135)).toEqual(NaN);
+    expect(sumDigits(0)).toEqual(0);
   });
-
-  test("if the number is found more than once, returns the number after the first instance", () => {
-    expect(sumDigits([5, 3, 7, 8, 1, 3, 10], 3)).toBe(7);
-  });
-
-  test("if the number is found in the final index position of the array, returns null", () => {
-    expect(sumDigits([5, 3, 7, 8, 1, 3, 10], 10)).toBe(null);
-  });
+  
 });
 
 describe("createRange", () => {

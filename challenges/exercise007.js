@@ -1,9 +1,12 @@
 /**
- * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
+ * This function takes a number, e.g. 123 and returns the sum of all its digits,
+ *  e.g 6 in this example.
  * @param {Number} n
  */
-export const sumDigits = (n) => {
+export function sumDigits (n) {
   if (n === undefined) throw new Error("n is required");
+  return n.toString().split('').map(Number)
+  .reduce(function (a, b) {return a + b}, 0);
 };
 
 /**
@@ -14,7 +17,7 @@ export const sumDigits = (n) => {
  * @param {Number} end
  * @param {Number} step
  */
-export const createRange = (start, end, step) => {
+export function createRange (start, end, step) {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
   if (step === undefined)
@@ -52,7 +55,7 @@ export const createRange = (start, end, step) => {
  * For example, if passed the above users and the date "2019-05-04" the function should return ["beth_1234"] as she used over 100 minutes of screentime on that date.
  * @param {Array} users
  */
-export const getScreentimeAlertList = (users, date) => {
+export function getScreentimeAlertList (users, date) {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
 };
@@ -67,7 +70,7 @@ export const getScreentimeAlertList = (users, date) => {
  * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
  * @param {String} str
  */
-export const hexToRGB = (hexStr) => {
+export function hexToRGB (hexStr) {
   if (hexStr === undefined) throw new Error("hexStr is required");
 };
 
@@ -81,6 +84,6 @@ export const hexToRGB = (hexStr) => {
  * The function should return "X" if player X has won, "0" if the player 0 has won, and null if there is currently no winner.
  * @param {Array} board
  */
-export const findWinner = (board) => {
+export function findWinner (board) {
   if (board === undefined) throw new Error("board is required");
 };
