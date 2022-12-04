@@ -46,12 +46,19 @@ test("returns false if it recieves non-letter characters", () => {
 });
 
 describe("getComplementaryDNA", () => {
-  test("reverses the digits of a number", () => {
-    expect(getComplementaryDNA(5)).toBe(5);
-    expect(getComplementaryDNA(104)).toBe(401);
-    expect(getComplementaryDNA(12345)).toBe(54321);
-    expect(getComplementaryDNA(100)).toBe(1); // No leading 0 necessary
+  test("returns a string of corresponding base pairs of a valid DNA string", () => {
+    expect(getComplementaryDNA("A")).toEqual("T");
+    expect(getComplementaryDNA("ACGACGACGACGT")).toEqual("TGCTGCTGCTGCA");
+    expect(getComplementaryDNA("ACGT")).toEqual("TGCA");
+    expect(getComplementaryDNA("TGCA")).toEqual("ACGT");
   });
+  test("it should not be case sensitive", () => {
+    expect(getComplementaryDNA("a")).toEqual("T");
+    expect(getComplementaryDNA("acgacgAcgacgt")).toEqual("TGCTGCTGCTGCA");
+    expect(getComplementaryDNA("acgT")).toEqual("TGCA");
+    expect(getComplementaryDNA("tgca")).toEqual("ACGT");
+  });
+
 });
 
 describe("isItPrime", () => {

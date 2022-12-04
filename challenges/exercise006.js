@@ -25,12 +25,22 @@ export function isValidDNA (str) {
 };
 
 /**
- * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
+ * This function will receive a valid DNA string (see above) and 
+ * should return a string of the complementary base pairs. 
+ * In DNA, T always pairs with A, and C always pairs with G. 
+ * So a string of "ACTG" would have a complementary DNA string of "TGAC".
  * @param {String} str
  * @returns {String}
  */
-export const getComplementaryDNA = (str) => {
+export function getComplementaryDNA (str) {
   if (str === undefined) throw new Error("str is required");
+  return (str.split("").map(x => { 
+    if (x.toUpperCase()==="G") return "C";
+    else if (x.toUpperCase()==="C") return "G";
+    else if (x.toUpperCase()==="A") return "T";
+    else if (x.toUpperCase()==="T") return "A";
+    //else throw new Error( "Not a Valid DNA type" );
+    })).join("");
 };
 
 /**
