@@ -36,18 +36,41 @@ describe("createRange", () => {
 });
 
 describe("getScreentimeAlertList", () => {
-  test("reverses the digits of a number", () => {
-    expect(getScreentimeAlertList(5)).toBe(5);
-    expect(getScreentimeAlertList(104)).toBe(401);
-    expect(getScreentimeAlertList(12345)).toBe(54321);
-    expect(getScreentimeAlertList(100)).toBe(1); // No leading 0 necessary
+  test("returns an array of usernames of users who have used more than 100 minutes of screentime for a given date", () => {
+
+     const users1 = [
+      {
+        username: "beth_1234",
+        name: "Beth Smith",
+        screenTime: [
+                     { date: "2019-05-01", usage: { twitter: 34, instagram: 22, facebook: 40} },
+                     { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31} },
+                     { date: "2019-05-03", usage: { twitter: 12, instagram: 15, facebook: 19} },
+                     { date: "2019-05-04", usage: { twitter: 10, instagram: 56, facebook: 61} },
+                    ]
+       },
+       {
+        username: "sam_j_1989",
+        name: "Sam Jones",
+        screenTime: [
+                     { date: "2019-06-11", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 10} },
+                     { date: "2019-06-13", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16} },
+                     { date: "2019-06-14", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 31} },
+                    ]
+       },
+     ];
+     const date1 = "2019-05-04"
+
+    expect(getScreentimeAlertList(users1, date1)).toEqual(["beth_1234"]);
+    expect(getScreentimeAlertList(users2, date2)).toEqual(["sam_j_1989"]);
   });
 });
 
 describe("hexToRGB", () => {
-  test("returns the total of the numbers in all sub arrays", () => {
-    const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
-    expect(hexToRGB(arrs)).toBe(44);
+  test("returns an RGB code for a given hexadecimal color code ", () => {
+    expect(hexToRGB("#FF1133")).toEqual("rgb(255,17,51)");
+    expect(hexToRGB("#ccdd11")).toEqual("rgb(204,221,17)");
+    expect(hexToRGB("#1502BE")).toEqual("rgb(21,2,190)");
   });
 });
 

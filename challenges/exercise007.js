@@ -64,12 +64,19 @@ export function createRange (start, end, step) {
 export function getScreentimeAlertList (users, date) {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  const first_keys_in_the_list = users.map(x => {return Object.keys(x) })       ;
+  const count_1 = 0;
+  return first_keys_in_the_list; 
 };
 
 /**
- * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
+ * This function will receive a hexadecimal color code in the format #FF1133.
+ * A hexadecimal code is a number written in hexadecimal notation, 
+ * i.e. base 16. If you want to know more about hexadecimal notation:
  * https://www.youtube.com/watch?v=u_atXp-NF6w
- * For colour codes, the first 2 chars (FF in this case) represent the amount of red, the next 2 chars (11) represent the amound of green, and the last 2 chars (33) represent the amount of blue.
+ * For colour codes, the first 2 chars (FF in this case) 
+ * represent the amount of red, the next 2 chars (11) represent the amound of green,
+ *  and the last 2 chars (33) represent the amount of blue.
  * Colours can also be represented in RGB format, using decimal notation.
  * This function should transform the hex code into an RGB code in the format:
  * "rgb(255,17,51)"
@@ -78,6 +85,14 @@ export function getScreentimeAlertList (users, date) {
  */
 export function hexToRGB (hexStr) {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  const red      = hexStr[1] + hexStr[2];
+  const green    = hexStr[3] + hexStr[4];
+  const blue     = hexStr[5] + hexStr[6];
+  const rgb_code = [red,green,blue] ;
+  for(let i = 0; i < rgb_code.length; i++){
+      rgb_code[i] = parseInt(rgb_code[i],16);
+  }
+  return "rgb("+ rgb_code + ")";
 };
 
 /**
@@ -94,18 +109,14 @@ export function findWinner (board) {
   
   if (board === undefined) throw new Error("board is required");
   
-          
   for (let i = 0; i < 3; i++) {
     // check for rows 
-    if (board[i][0] === board[i][1] && board[i][0] === board[i][2] && board[i][0] !== '')  { return board[i][0] } ;
-  
-  // check for columns 
+    if (board[i][0] === board[i][1] && board[i][0] === board[i][2] && board[i][0] !== '') { return board[i][0] } ;
+    // check for columns 
     if (board[0][i] === board[1][i] && board[0][i] === board[2][i] && board[0][i] !== '') { return board[0][i] } ;
-  
     // check for diagonals
     if (board[0][0] === board[1][1] && board[0][0] === board[2][2] && board[0][0] !== '') { return board[0][0] } ;
     if (board[0][2] === board[1][1] && board[0][2] === board[2][0] && board[0][2] !== '') { return board[0][2] } ;
-
     };
     return null;
     
