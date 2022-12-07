@@ -59,7 +59,7 @@ describe("getScreentimeAlertList", () => {
                     ]
        },
      ];
-     const date1 = "2019-05-04"
+     const date1 = "2019-05-04";
 
     expect(getScreentimeAlertList(users1, date1)).toEqual(["beth_1234"]);
     expect(getScreentimeAlertList(users2, date2)).toEqual(["sam_j_1989"]);

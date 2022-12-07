@@ -62,14 +62,17 @@ export function createRange (start, end, step) {
  * @param {Array} users
  */
 export function getScreentimeAlertList (users, date) {
+  
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
   const first_keys_in_the_list = users.map(x => {return Object.keys(x) })       ;
   const count_1 = 0;
   return first_keys_in_the_list; 
+
 };
 
 /**
+ * 
  * This function will receive a hexadecimal color code in the format #FF1133.
  * A hexadecimal code is a number written in hexadecimal notation, 
  * i.e. base 16. If you want to know more about hexadecimal notation:
@@ -81,6 +84,7 @@ export function getScreentimeAlertList (users, date) {
  * This function should transform the hex code into an RGB code in the format:
  * "rgb(255,17,51)"
  * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
+ * 
  * @param {String} str
  */
 export function hexToRGB (hexStr) {
@@ -96,13 +100,16 @@ export function hexToRGB (hexStr) {
 };
 
 /**
- * This function takes a noughts and crosses board represented as an array, where an empty space is represented with null.
+ * This function takes a noughts and crosses board represented as an array, 
+ * where an empty space is represented with null.
  * [
  *  ["X", "0", null],
  *  ["X", null, "0"],
  *  ["X", null, "0"]
  * ]
- * The function should return "X" if player X has won, "0" if the player 0 has won, and null if there is currently no winner.
+ * The function should return "X" if player X has won, 
+ * "0" if the player 0 has won, and null if there is currently no winner.
+ * 
  * @param {Array} board
  */
 export function findWinner (board) {
