@@ -105,59 +105,31 @@ describe("createMatrix", () => {
 });
 
 describe("areWeCovered", () => {
-  test("returns true if any of the properties of an object contain the specified string", () => {
-    const obj1 = {
-      name: "LINNMON",
-      description: "Small round table",
-      price: 31.89,
-      store: "Warrington",
-      code: 12872,
-    };
-    expect(areWeCovered(obj1, "table")).toBe(true);
+  test("returns true if there are enough staff scheduled for the given day", () => {
 
-    // Note that the objects provided to the function could have any keys/values
-    const obj2 = {
-      product_name: "Sparkle n Shine Dishwasher Tablets",
-      price: 1.99,
-      location: "Hulme",
-      discounted: false,
-      available: true,
-    };
-    expect(areWeCovered(obj2, "Dishwasher")).toBe(true);
-  });
+    const  staff1 = [
+      { name: "Fernando", rota: ["Monday", "Tuesday", "Friday"] },
+      { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+      { name: "Juan", rota: [ "Sunday", "Tuesday", "Wednesday","Friday"] },
+      {  name: "Carlos", rota: ["Thursday", "Tuesday", "Wednesday"] },
+      {  name: "Verona", rota: ["Sunday", "Thursday", "Friday"] },
+      ];
 
-  test("returns false if none of the properties of an object contain the specified string", () => {
-    const obj1 = {
-      name: "LINNMON",
-      description: "Small round table",
-      price: 31.89,
-      store: "Warrington",
-      code: 12872,
-    };
-    expect(areWeCovered(obj1, "chair")).toBe(false);
+      const day1 = "Tuesday";
 
-    // Note that the objects provided to the function could have any keys/values
-    const obj2 = {
-      product_name: "Sparkle n Shine Dishwasher Tablets",
-      price: 1.99,
-      location: "Hulme",
-      discounted: false,
-      available: true,
-    };
-    expect(areWeCovered(obj2, "Carpet Cleaner")).toBe(false);
-  });
+    expect(areWeCovered(staff1, day1)).toBe(true);
 
-  test("The search string should not be case sensitive", () => {
-    const obj1 = {
-      name: "LINNMON",
-      description: "Small round table",
-      price: 31.89,
-      store: "Warrington",
-      code: 12872,
-    };
+    const  staff2 = [
+      { name: "Chen Li", rota: ["Monday", "Tuesday","Wednesday","Thursday", "Friday","Saturday","Sunday"] },
+      { name: "Patel", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday","Monday","Friday"] },
+      { name: "Kim", rota: [ "Sunday", "Tuesday", "Wednesday","Friday"] },
+      {  name: "Tyrone", rota: ["Thursday", "Tuesday", "Wednesday"] },
+      {  name: "Jamal", rota: [ "Tuesday", "Wednesday",] },
+      {  name: "Shanqelita", rota: ["Sunday", "Thursday", "Friday","Saturday"] },
+      ];
 
-    expect(areWeCovered(obj1, "warrington")).toBe(true);
-    expect(areWeCovered(obj1, "linnmon")).toBe(true);
-    expect(areWeCovered(obj1, "Liverpool")).toBe(false);
+      const day2 = "Wednesday";
+
+    expect(areWeCovered(staff2, day2)).toBe(true);
   });
 });
