@@ -61,8 +61,44 @@ describe("getScreentimeAlertList", () => {
      ];
      const date1 = "2019-05-04";
 
+const users2 = [
+      {
+     username: "bionicman_2000",
+     name: "JC Denton",
+     screenTime: [
+                  { date: "2019-05-01", usage: { twitter: 12, instagram: 7, facebook: 16} },
+                  { date: "2019-05-02", usage: { twitter: 0, instagram: 4, facebook: 10} },
+                  { date: "2019-05-03", usage: { twitter: 13, instagram: 5, facebook: 15} },
+                  { date: "2019-05-04", usage: { twitter: 25, instagram: 6, facebook: 13} },
+                 ]
+    },
+    {
+     username: "blue_eyes_77",
+     name: "Anna Navare",
+     screenTime: [
+                  { date: "2019-05-01", usage: { twitter: 25, instagram: 94, facebook: 77} },
+                  { date: "2019-05-02", usage: { twitter: 39, instagram: 34, facebook: 65} },
+                  { date: "2019-05-03", usage: { twitter: 21, instagram: 45, facebook: 45} },
+                  { date: "2019-05-04", usage: { twitter: 27, instagram: 36, facebook: 53} },
+                  { date: "2019-05-05", usage: { twitter: 54, instagram: 63, facebook: 34} },
+                 ]
+    },
+    {
+      username: "sam_j_1989",
+      name: "Sam Jones",
+      screenTime: [
+                   { date: "2019-05-01", usage: { mapMyRun: 33, whatsApp: 0, facebook: 0, safari: 10} },
+                   { date: "2019-05-02", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16} },
+                   { date: "2019-05-03", usage: { mapMyRun: 30, whatsApp: 0, facebook: 0, safari: 31} },
+                   { date: "2019-05-04", usage: { mapMyRun: 29, whatsApp: 0, facebook: 0, safari: 25} },
+                   { date: "2019-05-05", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 44} },
+                  ]
+     },
+  ];
+  const date2 = "2019-05-03";
+
     expect(getScreentimeAlertList(users1, date1)).toEqual(["beth_1234"]);
-    expect(getScreentimeAlertList(users2, date2)).toEqual(["sam_j_1989"]);
+    expect(getScreentimeAlertList(users2, date2)).toEqual(["blue_eyes_77"]);
   });
 });
 
