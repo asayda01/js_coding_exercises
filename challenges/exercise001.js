@@ -8,10 +8,13 @@ export function capitalize(word) {
 export function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
-  return firstName.substring(0,1).toUpperCase() + "."  +lastName.substring(0,1).toUpperCase();
   
-  //  for more better runtime and efficiency one can use: 
-  //   return firstName.substring(0,1) + "."  +lastName.substring(0,1);
+  // first approach:
+  //return firstName.substring(0,1).toUpperCase() + "."  +lastName.substring(0,1).toUpperCase();
+
+  // Neil`s suggestion:
+  return `${firstName.substring(0,1).toUpperCase()}.${lastName.substring(0,1).toUpperCase()}`;
+  
 }
 
 export function addVAT(originalPrice, vatRate) {
@@ -40,9 +43,8 @@ export function reverseWord(word) {
 export function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   for(let idx in words) { 
-    words[idx] = words[idx].split('').reverse().join('');
-}
-  return words;          // could be improved * * *
+    words[idx] = words[idx].split('').reverse().join('')};
+  return words;          
 }
 
 export function countLinuxUsers(users) {
