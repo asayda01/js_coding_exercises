@@ -61,14 +61,21 @@ export function createRange (start, end, step) {
  *  return ["beth_1234"] as she used over 100 minutes of screentime on that date.
  * @param {Array} users
  */
-export function getScreentimeAlertList (users, date) {
-  
+export function getScreentimeAlertList (users, date){
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
-  const first_keys_in_the_list = users.map(x => {return Object.keys(x) })       ;
-  const count_1 = 0;
-  return first_keys_in_the_list; 
-
+  const the_users = [];
+  users.forEach(x => {
+    x.screenTime.forEach(screenTime => {
+      if (screenTime.date === date) {
+        let count_1 = 0;
+        for (let key in screenTime.usage) {
+          count_1 += screenTime.usage[key]};
+        if (count_1 >= 100) { the_users.push(x.username)};
+        };
+    });
+  });
+  return the_users;
 };
 
 /**

@@ -100,6 +100,55 @@ const users2 = [
     expect(getScreentimeAlertList(users1, date1)).toEqual(["beth_1234"]);
     expect(getScreentimeAlertList(users2, date2)).toEqual(["blue_eyes_77"]);
   });
+
+test("returns the usernames if there are multiple users who have used more than 100 minutes of screentime for a given date", () => {
+  const users3 = [
+    {
+   username: "bionicman_2000",
+   name: "JC Denton",
+   screenTime: [
+                { date: "2019-07-01", usage: { twitter: 12, instagram: 7, facebook: 16} },
+                { date: "2019-07-02", usage: { twitter: 0, instagram: 4, facebook: 10} },
+                { date: "2019-07-03", usage: { twitter: 13, instagram: 5, facebook: 15} },
+                { date: "2019-07-04", usage: { twitter: 25, instagram: 6, facebook: 13} },
+               ]
+  },
+  {
+   username: "blue_eyes_77",
+   name: "Anna Navare",
+   screenTime: [
+                { date: "2019-07-01", usage: { twitter: 25, instagram: 94, facebook: 77} },
+                { date: "2019-07-02", usage: { twitter: 39, instagram: 34, facebook: 65} },
+                { date: "2019-07-03", usage: { twitter: 21, instagram: 45, facebook: 45} },
+                { date: "2019-07-04", usage: { twitter: 27, instagram: 36, facebook: 53} },
+                { date: "2019-07-05", usage: { twitter: 54, instagram: 63, facebook: 34} },
+               ]
+  },
+  {
+    username: "Knight_Rider",
+    name: "Joseph Manderley",
+    screenTime: [
+                 { date: "2019-07-01", usage: { mapMyRun: 33, whatsApp: 0, facebook: 0, safari: 10} },
+                 { date: "2019-07-02", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16} },
+                 { date: "2019-07-03", usage: { mapMyRun: 30, whatsApp: 0, facebook: 0, safari: 31} },
+                 { date: "2019-07-04", usage: { mapMyRun: 29, whatsApp: 0, facebook: 0, safari: 25} },
+                 { date: "2019-07-05", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 44} },
+                ]
+   },
+  {
+      username: "beth_1234",
+      name: "Beth Smith",
+      screenTime: [
+                   { date: "2019-07-01", usage: { twitter: 34, instagram: 22, facebook: 40} },
+                   { date: "2019-07-02", usage: { twitter: 56, instagram: 40, facebook: 31} },
+                   { date: "2019-07-03", usage: { twitter: 42, instagram: 67, facebook: 19} },
+                   { date: "2019-07-04", usage: { twitter: 10, instagram: 56, facebook: 61} },
+                  ]
+     },
+];
+const date3 = "2019-07-03";
+expect(getScreentimeAlertList(users3, date3)).toEqual(["blue_eyes_77", "beth_1234"]);
+});
 });
 
 describe("hexToRGB", () => {
